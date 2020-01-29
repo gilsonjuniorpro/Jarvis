@@ -10,7 +10,7 @@ class Mark {
 
     companion object{
         fun showAlertSuccess(activity: Activity, title: String, message: String){
-            Alerter.create(activity, R.layout.custom_layout)
+            Alerter.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -28,7 +28,7 @@ class Mark {
         }
 
         fun showAlertSuccess(activity: Activity, message: String){
-            Alerter.create(activity, R.layout.custom_layout)
+            Alerter.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -44,7 +44,7 @@ class Mark {
         }
 
         fun showAlertError(activity: Activity, title: String, message: String){
-            Alerter.create(activity, R.layout.custom_layout)
+            Alerter.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -62,7 +62,7 @@ class Mark {
         }
 
         fun showAlertError(activity: Activity, message: String){
-            Alerter.create(activity, R.layout.custom_layout)
+            Alerter.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -78,7 +78,7 @@ class Mark {
         }
 
         fun showAlertWarning(activity: Activity, title: String?, message: String){
-            Alerter.create(activity, R.layout.custom_layout)
+            Alerter.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -96,7 +96,7 @@ class Mark {
         }
 
         fun showAlertWarning(activity: Activity, message: String){
-            Alerter.create(activity, R.layout.custom_layout)
+            Alerter.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
