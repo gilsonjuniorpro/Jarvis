@@ -10,6 +10,27 @@ import androidx.core.content.ContextCompat
 class Mark {
 
     companion object{
+
+        @JvmStatic
+        fun showAlert(activity: Activity, title: String, message: String, color: Int, time: Long){
+            Alerter.create(activity, R.layout.layout_with_title)
+                .setBackgroundColorRes(color)
+                .enableSwipeToDismiss()
+                .setDuration(time)
+                .also { alerter ->
+                    val layout = alerter.getLayoutContainer()
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+
+                    ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
+                    tvTitle.text = title
+                    tvMessage.text = message
+                }
+                .show()
+        }
+
+        @JvmStatic
         fun showAlertSuccess(activity: Activity, title: String, message: String){
             Alerter.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
@@ -17,9 +38,9 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
                     tvTitle.text = title
@@ -28,6 +49,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertSuccess(context: Context, title: String, message: String){
             Alerter.create(context as Activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
@@ -35,9 +57,9 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_success))
                     tvTitle.text = title
@@ -46,6 +68,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertSuccess(activity: Activity, message: String){
             Alerter.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
@@ -53,8 +76,8 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
                     tvMessage.text = message
@@ -62,6 +85,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertSuccess(context: Context, message: String){
             Alerter.create(context as Activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
@@ -69,8 +93,8 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_success))
                     tvMessage.text = message
@@ -78,6 +102,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertError(activity: Activity, title: String, message: String){
             Alerter.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
@@ -85,9 +110,9 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_error))
                     tvTitle.text = title
@@ -96,6 +121,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertError(context: Context, title: String, message: String){
             Alerter.create(context as Activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
@@ -103,9 +129,9 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_error))
                     tvTitle.text = title
@@ -114,6 +140,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertError(activity: Activity, message: String){
             Alerter.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
@@ -121,8 +148,8 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_error))
                     tvMessage.text = message
@@ -130,6 +157,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertError(context: Context, message: String){
             Alerter.create(context as Activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
@@ -137,8 +165,8 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_error))
                     tvMessage.text = message
@@ -146,16 +174,17 @@ class Mark {
                 .show()
         }
 
-        fun showAlertWarning(activity: Activity, title: String?, message: String){
+        @JvmStatic
+        fun showAlertWarning(activity: Activity, title: String, message: String){
             Alerter.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_info))
                     tvTitle.text = title
@@ -164,16 +193,17 @@ class Mark {
                 .show()
         }
 
-        fun showAlertWarning(context: Context, title: String?, message: String){
+        @JvmStatic
+        fun showAlertWarning(context: Context, title: String, message: String){
             Alerter.create(context as Activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_info))
                     tvTitle.text = title
@@ -182,6 +212,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertWarning(activity: Activity, message: String){
             Alerter.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
@@ -189,9 +220,8 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_info))
                     tvMessage.text = message
@@ -199,6 +229,7 @@ class Mark {
                 .show()
         }
 
+        @JvmStatic
         fun showAlertWarning(context: Context, message: String){
             Alerter.create(context as Activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
@@ -206,9 +237,8 @@ class Mark {
                 .setDuration(3000)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
-                    var ivIcon: ImageView = layout?.findViewById<View>(R.id.ivIcon) as ImageView
-                    var tvTitle: TextView = layout?.findViewById<View>(R.id.tvTitle) as TextView
-                    var tvMessage: TextView = layout?.findViewById<View>(R.id.tvMessage) as TextView
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_info))
                     tvMessage.text = message
