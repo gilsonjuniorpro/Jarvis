@@ -2,6 +2,7 @@ package com.jarvis.ca
 
 import android.app.Activity
 import android.content.Context
+import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -13,18 +14,24 @@ class Mark {
 
         @JvmStatic
         fun showAlert(activity: Activity, title: String, message: String, color: Int, time: Long){
-            Alerter.create(activity, R.layout.layout_with_title)
+            var mainLayout = if(TextUtils.isEmpty(title)){
+                R.layout.layout_no_title
+            }else{
+                R.layout.layout_with_title
+            }
+            Alerter.create(activity, mainLayout)
                 .setBackgroundColorRes(color)
                 .enableSwipeToDismiss()
                 .setDuration(time)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
                     val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
-
+                    if(TextUtils.isEmpty(title)) {
+                        val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                        tvTitle.text = title
+                    }
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
-                    tvTitle.text = title
                     tvMessage.text = message
                 }
                 .show()
