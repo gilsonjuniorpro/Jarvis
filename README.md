@@ -1,5 +1,7 @@
 # Jarvis
 
+﻿![Image of Jarvis Logo](jarvis_logo_v2.svg)
+
 # Overview
 
 A cool and simple alert library made in kotlin
@@ -36,7 +38,7 @@ dependencies {
 <b>Jarvis</b> allows you to show some kinds of alerts like success, error, warning and generic.
 
 To show a <b>success</b> alert you have 2 options:
-```Java
+```kotlin
 //send 2 parameters activity or context and message
 Mark.showAlertSuccess(this, message));
 
@@ -45,7 +47,7 @@ Mark.showAlertSuccess(this, title, message));
 ```
 ---
 To show an <b>error</b> alert just replace to showAlertError
-```Java
+```kotlin
 //send 2 parameters activity or context and message
 Mark.showAlertError(this, message));
 
@@ -54,7 +56,7 @@ Mark.showAlertError(this, title, message));
 ```
 ---
 To show a <b>warning</b> alert just replace to showAlertWarning
-```Java
+```kotlin
 //send 2 parameters activity or context and message
 Mark.showAlertWarning(this, message));
 
@@ -63,7 +65,7 @@ Mark.showAlertWarning(this, title, message));
 ```
 ---
 All these alerts have a background color defined but if you need an alert with other color you can use the <b>generic constructor:</b>
-```Java
+```kotlin
 //send 5 parameters activity or context, title, message, color, time
 Mark.showAlert(this, title, message, R.color.title, 5000));
 ```
