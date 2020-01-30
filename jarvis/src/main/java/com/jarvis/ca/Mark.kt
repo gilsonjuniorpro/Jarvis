@@ -12,7 +12,7 @@ class Mark {
 
     companion object{
         @JvmStatic
-        fun showAlert(activity: Activity, title: String, message: String, color: Int, time: Long){
+        fun showAlert(activity: Activity, title: String?, message: String, color: Int, time: Long){
             var mainLayout = if(TextUtils.isEmpty(title)){
                 R.layout.layout_no_title
             }else{

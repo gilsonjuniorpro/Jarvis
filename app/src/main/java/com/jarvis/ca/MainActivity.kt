@@ -9,6 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Mark.showAlert(this@MainActivity, "title", "message", R.color.colorAccent, 3000)
+        Mark.showAlert(this@MainActivity, null, "message", R.color.colorAccent, 3000)
     }
 }
