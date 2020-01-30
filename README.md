@@ -1,4 +1,4 @@
-# Jarvis
+# Jarvis - Android Alert Library
 
 ﻿![Image of Jarvis Logo](jarvis_logo_v2.svg)
 
