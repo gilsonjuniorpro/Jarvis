@@ -30,7 +30,7 @@ allprojects {
 <b>Step 2</b> - Add the dependency
 ```
 dependencies {
-    implementation 'com.github.gilsonjuniorpro:Jarvis:0.1.7'
+    implementation 'com.github.gilsonjuniorpro:Jarvis:0.1.8'
 }
 ```
 
