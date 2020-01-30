@@ -71,6 +71,13 @@ Mark.showAlert(this, title, message, R.color.title, 5000));
 ```
 - Color: Just remember to send a color in android resouce format <b>R.color.title</b> 
 - Time: Milliseconds format <b>5000</b> means 5 seconds
+---
+All these alerts have an icon defined but if you need an alert with other icon you can use the <b>generic constructor:</b>
+```kotlin
+//send 6 parameters activity or context, title, message, color, time, icon
+Mark.showAlert(this, title, message, R.color.title, 5000, R.drawable.ic_alert));
+```
+- Icon: Just remember to send an icon in android resouce format <b>R.drawable.ic_alert</b> 
 
 # Requirements
 - AndroidX
