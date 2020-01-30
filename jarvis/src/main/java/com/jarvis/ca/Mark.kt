@@ -27,7 +27,7 @@ class Mark {
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
                     val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
-                    if(TextUtils.isEmpty(title)) {
+                    if(!TextUtils.isEmpty(title)) {
                         val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
                         tvTitle.text = title
                     }
