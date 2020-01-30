@@ -7,10 +7,42 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import java.lang.Exception
 
 class Mark {
 
     companion object{
+
+        @JvmStatic
+        fun showAlert(activity: Activity, title: String?, message: String, color: Int, time: Long, icon: Int){
+            var mainLayout = if(TextUtils.isEmpty(title)){
+                R.layout.layout_no_title
+            }else{
+                R.layout.layout_with_title
+            }
+            Alerter.create(activity, mainLayout)
+                .setBackgroundColorRes(color)
+                .enableSwipeToDismiss()
+                .setDuration(time)
+                .also { alerter ->
+                    val layout = alerter.getLayoutContainer()
+                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+                    if(!TextUtils.isEmpty(title)) {
+                        val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
+                        tvTitle.text = title
+                    }
+                    try {
+                        ivIcon.setImageResource(icon)
+                    }catch (e: Exception){
+                        ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
+                    }
+
+                    tvMessage.text = message
+                }
+                .show()
+        }
+
         @JvmStatic
         fun showAlert(activity: Activity, title: String?, message: String, color: Int, time: Long){
             var mainLayout = if(TextUtils.isEmpty(title)){
