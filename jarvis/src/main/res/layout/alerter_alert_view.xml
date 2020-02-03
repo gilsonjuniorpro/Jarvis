@@ -12,14 +12,15 @@
         style="@style/AlertStyle"
         android:background="@android:color/darker_gray"
         android:clickable="true"
+        android:layout_gravity="bottom"
         android:clipToPadding="false"
         android:focusable="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:orientation="vertical"
         android:paddingStart="@dimen/alerter_padding_default"
-        android:paddingTop="@dimen/alerter_alert_view_padding_top"
+        android:paddingTop="@dimen/alerter_padding_default"
         android:paddingEnd="@dimen/alerter_padding_default"
-        android:paddingBottom="@dimen/alerter_padding_default"
+        android:paddingBottom="@dimen/alerter_alert_view_padding_top"
         tools:visibility="visible">
 
         <ViewStub
