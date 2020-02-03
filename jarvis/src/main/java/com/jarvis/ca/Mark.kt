@@ -20,7 +20,7 @@ class Mark {
             }else{
                 R.layout.layout_with_title
             }
-            Alerter.create(activity, mainLayout)
+            AlerterFactory.create(activity, mainLayout)
                 .setBackgroundColorRes(color)
                 .enableSwipeToDismiss()
                 .setDuration(time)
@@ -50,7 +50,7 @@ class Mark {
             }else{
                 R.layout.layout_with_title
             }
-            Alerter.create(activity, mainLayout)
+            AlerterFactory.create(activity, mainLayout)
                 .setBackgroundColorRes(color)
                 .enableSwipeToDismiss()
                 .setDuration(time)
@@ -70,7 +70,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertSuccess(activity: Activity, title: String, message: String){
-            Alerter.create(activity, R.layout.layout_with_title)
+            AlerterFactory.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -89,7 +89,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertSuccess(context: Context, title: String, message: String){
-            Alerter.create(context as Activity, R.layout.layout_with_title)
+            AlerterFactory.create(context as Activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -108,7 +108,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertSuccess(activity: Activity, message: String){
-            Alerter.create(activity, R.layout.layout_no_title)
+            AlerterFactory.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -125,7 +125,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertSuccess(context: Context, message: String){
-            Alerter.create(context as Activity, R.layout.layout_no_title)
+            AlerterFactory.create(context as Activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertSuccess)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -142,7 +142,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertError(activity: Activity, title: String, message: String){
-            Alerter.create(activity, R.layout.layout_with_title)
+            AlerterFactory.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -161,7 +161,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertError(context: Context, title: String, message: String){
-            Alerter.create(context as Activity, R.layout.layout_with_title)
+            AlerterFactory.create(context as Activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -180,7 +180,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertError(activity: Activity, message: String){
-            Alerter.create(activity, R.layout.layout_no_title)
+            AlerterFactory.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -197,7 +197,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertError(context: Context, message: String){
-            Alerter.create(context as Activity, R.layout.layout_no_title)
+            AlerterFactory.create(context as Activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertError)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -214,7 +214,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertWarning(activity: Activity, title: String, message: String){
-            Alerter.create(activity, R.layout.layout_with_title)
+            AlerterFactory.create(activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -233,7 +233,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertWarning(context: Context, title: String, message: String){
-            Alerter.create(context as Activity, R.layout.layout_with_title)
+            AlerterFactory.create(context as Activity, R.layout.layout_with_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -252,7 +252,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertWarning(activity: Activity, message: String){
-            Alerter.create(activity, R.layout.layout_no_title)
+            AlerterFactory.create(activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
@@ -269,7 +269,7 @@ class Mark {
 
         @JvmStatic
         fun showAlertWarning(context: Context, message: String){
-            Alerter.create(context as Activity, R.layout.layout_no_title)
+            AlerterFactory.create(context as Activity, R.layout.layout_no_title)
                 .setBackgroundColorRes(R.color.colorAlertWarning)
                 .enableSwipeToDismiss()
                 .setDuration(3000)
