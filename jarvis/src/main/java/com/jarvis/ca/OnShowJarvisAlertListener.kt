@@ -1,5 +1,5 @@
 package com.jarvis.ca
 
-interface OnShowAlertListener {
+interface OnShowJarvisAlertListener {
     fun onShow()
 }

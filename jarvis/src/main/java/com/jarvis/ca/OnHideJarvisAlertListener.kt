@@ -1,5 +1,5 @@
 package com.jarvis.ca
 
-interface OnHideAlertListener {
+interface OnHideJarvisAlertListener {
     fun onHide()
 }

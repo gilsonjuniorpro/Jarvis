@@ -27,14 +27,15 @@ import androidx.core.view.ViewCompat
 import kotlinx.android.synthetic.main.alerter_alert_default_layout.view.*
 import kotlinx.android.synthetic.main.alerter_alert_view.view.*
 
-class Alert @JvmOverloads constructor(context: Context,
-                                      @LayoutRes layoutId: Int,
-                                      attrs: AttributeSet? = null,
-                                      defStyle: Int = 0)
-    : FrameLayout(context, attrs, defStyle), View.OnClickListener, Animation.AnimationListener, SwipeDismissTouchListener.DismissCallbacks {
+class JarvisAlert @JvmOverloads constructor(context: Context,
+                                            @LayoutRes layoutId: Int,
+                                            attrs: AttributeSet? = null,
+                                            defStyle: Int = 0)
+    : FrameLayout(context, attrs, defStyle), View.OnClickListener, Animation.AnimationListener,
+    SwipeDismissTouchListener.DismissCallbacks {
 
-    private var onShowListener: OnShowAlertListener? = null
-    internal var onHideListener: OnHideAlertListener? = null
+    private var onShowListener: OnShowJarvisAlertListener? = null
+    internal var onHideListener: OnHideJarvisAlertListener? = null
 
     internal var enterAnimation: Animation = AnimationUtils.loadAnimation(context, R.anim.alerter_slide_in_from_top)
     internal var exitAnimation: Animation = AnimationUtils.loadAnimation(context, R.anim.alerter_slide_out_to_top)
@@ -69,12 +70,12 @@ class Alert @JvmOverloads constructor(context: Context,
     private var soundEnabled = false
 
     /**
-     * Sets the Gravity of the Alert
+     * Sets the Gravity of the JarvisAlert
      *
-     * @param contentGravity Gravity of the Alert
+     * @param contentGravity Gravity of the JarvisAlert
      */
     var contentGravity: Int
-        get() = (llAlertBackground?.layoutParams as FrameLayout.LayoutParams).gravity
+        get() = (llAlertBackground?.layoutParams as LayoutParams).gravity
         set(contentGravity) {
             val paramsTitle = tvTitle?.layoutParams as? LinearLayout.LayoutParams
             paramsTitle?.gravity = contentGravity
@@ -120,7 +121,7 @@ class Alert @JvmOverloads constructor(context: Context,
             marginSet = true
 
             // Add a negative top margin to compensate for overshoot enter animation
-            val params = layoutParams as ViewGroup.MarginLayoutParams
+            val params = layoutParams as MarginLayoutParams
             params.topMargin = context.resources.getDimensionPixelSize(R.dimen.alerter_alert_negative_margin_top)
 
             // Check for Cutout
@@ -145,7 +146,6 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /* Override Methods */
-
     override fun onTouchEvent(event: MotionEvent): Boolean {
         super.performClick()
         return super.onTouchEvent(event)
@@ -169,7 +169,6 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /* Interface Method Implementations */
-
     override fun onAnimationStart(animation: Animation) {
         if (!isInEditMode) {
             visibility = View.VISIBLE
@@ -211,7 +210,7 @@ class Alert @JvmOverloads constructor(context: Context,
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     private fun startHideAnimation() {
-        //Start the Handler to clean up the Alert
+        //Start the Handler to clean up the JarvisAlert
         if (!enableInfiniteDuration) {
             runningAnimation = Runnable { hide() }
 
@@ -224,7 +223,6 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /* Clean Up Methods */
-
     /**
      * Cleans up the currently showing alert view.
      */
@@ -252,7 +250,7 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Removes Alert View from its Parent Layout
+     * Removes JarvisAlert View from its Parent Layout
      */
     internal fun removeFromParent() {
         clearAnimation()
@@ -263,7 +261,7 @@ class Alert @JvmOverloads constructor(context: Context,
                 try {
                     if (parent != null) {
                         try {
-                            (parent as ViewGroup).removeView(this@Alert)
+                            (parent as ViewGroup).removeView(this@JarvisAlert)
 
                             onHideListener?.onHide()
                         } catch (ex: Exception) {
@@ -280,7 +278,7 @@ class Alert @JvmOverloads constructor(context: Context,
     /* Setters and Getters */
 
     /**
-     * Sets the Alert Background colour
+     * Sets the JarvisAlert Background colour
      *
      * @param color The qualified colour integer
      */
@@ -289,7 +287,7 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Sets the Alert Background Drawable Resource
+     * Sets the JarvisAlert Background Drawable Resource
      *
      * @param resource The qualified drawable integer
      */
@@ -298,7 +296,7 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Sets the Alert Background Drawable
+     * Sets the JarvisAlert Background Drawable
      *
      * @param drawable The qualified drawable
      */
@@ -311,34 +309,34 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Sets the Title of the Alert
+     * Sets the Title of the JarvisAlert
      *
-     * @param titleId String resource id of the Alert title
+     * @param titleId String resource id of the JarvisAlert title
      */
     fun setTitle(@StringRes titleId: Int) {
         setTitle(context.getString(titleId))
     }
 
     /**
-     * Sets the Text of the Alert
+     * Sets the Text of the JarvisAlert
      *
-     * @param textId String resource id of the Alert text
+     * @param textId String resource id of the JarvisAlert text
      */
     fun setText(@StringRes textId: Int) {
         setText(context.getString(textId))
     }
 
     /**
-     * Disable touches while the Alert is showing
+     * Disable touches while the JarvisAlert is showing
      */
     fun disableOutsideTouch() {
         flClickShield.isClickable = true
     }
 
     /**
-     * Sets the Title of the Alert
+     * Sets the Title of the JarvisAlert
      *
-     * @param title CharSequence object to be used as the Alert title
+     * @param title CharSequence object to be used as the JarvisAlert title
      */
     fun setTitle(title: CharSequence) {
         if (!TextUtils.isEmpty(title)) {
@@ -379,9 +377,9 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Sets the Text of the Alert
+     * Sets the Text of the JarvisAlert
      *
-     * @param text CharSequence object to be used as the Alert text
+     * @param text CharSequence object to be used as the JarvisAlert text
      */
     fun setText(text: CharSequence) {
         if (!TextUtils.isEmpty(text)) {
@@ -404,16 +402,16 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Set the inline icon for the JarvisAlert
      *
-     * @param iconId Drawable resource id of the icon to use in the Alert
+     * @param iconId Drawable resource id of the icon to use in the JarvisAlert
      */
     fun setIcon(@DrawableRes iconId: Int) {
         ivIcon?.setImageDrawable(AppCompatResources.getDrawable(context, iconId))
     }
 
     /**
-     * Set the icon color for the Alert
+     * Set the icon color for the JarvisAlert
      *
      * @param color Color int
      */
@@ -422,7 +420,7 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Set the icon color for the Alert
+     * Set the icon color for the JarvisAlert
      *
      * @param colorFilter ColorFilter
      */
@@ -431,7 +429,7 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Set the icon color for the Alert
+     * Set the icon color for the JarvisAlert
      *
      * @param color Color int
      * @param mode  PorterDuff.Mode
@@ -441,25 +439,25 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Set the inline icon for the JarvisAlert
      *
-     * @param bitmap Bitmap image of the icon to use in the Alert.
+     * @param bitmap Bitmap image of the icon to use in the JarvisAlert.
      */
     fun setIcon(bitmap: Bitmap) {
         ivIcon?.setImageBitmap(bitmap)
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Set the inline icon for the JarvisAlert
      *
-     * @param drawable Drawable image of the icon to use in the Alert.
+     * @param drawable Drawable image of the icon to use in the JarvisAlert.
      */
     fun setIcon(drawable: Drawable) {
         ivIcon?.setImageDrawable(drawable)
     }
 
     /**
-     * Set the inline icon size for the Alert
+     * Set the inline icon size for the JarvisAlert
      *
      * @param size Dimension int.
      */
@@ -469,7 +467,7 @@ class Alert @JvmOverloads constructor(context: Context,
     }
 
     /**
-     * Set the inline icon size for the Alert
+     * Set the inline icon size for the JarvisAlert
      *
      * @param size Icon size in pixel.
      */
@@ -579,7 +577,7 @@ class Alert @JvmOverloads constructor(context: Context,
      *
      * @param listener Listener to be fired
      */
-    fun setOnShowListener(listener: OnShowAlertListener) {
+    fun setOnShowListener(listener: OnShowJarvisAlertListener) {
         this.onShowListener = listener
     }
 
