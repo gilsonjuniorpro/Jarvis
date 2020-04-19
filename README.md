@@ -36,7 +36,7 @@ dependencies {
 }
 ```
 
-# Quick Start
+### Quick Start
 **Jarvis** allows you to show some kinds of alerts like success, error, warning and generic.
 
 To show a <b>success</b> alert you have 2 options:
