@@ -5,6 +5,9 @@
 ### **Overview - About this project**
 A cool and simple alert library made in kotlin
 
+### **Version**
+[![](https://jitpack.io/v/gilsonjuniorpro/Jarvis.svg)](https://jitpack.io/#gilsonjuniorpro/Jarvis)
+
 <b>Easy to use:</b> Jarvis library leverages Kotlin's language features for simplicity and minimal boilerplate.<br />
 <b>Modern:</b> Works like a Snackbar but on top screen
 
