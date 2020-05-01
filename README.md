@@ -35,7 +35,7 @@ allprojects {
 <b>Step 2</b> - Add the dependency
 ```
 dependencies {
-    implementation 'com.github.gilsonjuniorpro:Jarvis:0.2.1'
+    implementation 'com.github.gilsonjuniorpro:Jarvis:version_here'
 }
 ```
 
@@ -44,34 +44,34 @@ dependencies {
 
 To show a <b>success</b> alert you have 2 options:
 ```kotlin
-//send 2 parameters activity or context and message
+//send 2 parameters activity and message
 Mark.showAlertSuccess(this, message));
 
-//or sending 3 parameters activity or context, title, message
+//or sending 3 parameters activity, title, message
 Mark.showAlertSuccess(this, title, message));
 ```
 ---
 To show an <b>error</b> alert just replace to showAlertError
 ```kotlin
-//send 2 parameters activity or context and message
+//send 2 parameters activity and message
 Mark.showAlertError(this, message));
 
-//or sending 3 parameters activity or context, title, message
+//or sending 3 parameters activity, title, message
 Mark.showAlertError(this, title, message));
 ```
 ---
 To show a <b>warning</b> alert just replace to showAlertWarning
 ```kotlin
-//send 2 parameters activity or context and message
+//send 2 parameters activity and message
 Mark.showAlertWarning(this, message));
 
-//or sending 3 parameters activity or context, title, message
+//or sending 3 parameters activity, title, message
 Mark.showAlertWarning(this, title, message));
 ```
 ---
 All these alerts have a background color defined but if you need an alert with other color you can use the <b>generic constructor:</b>
 ```kotlin
-//send 5 parameters activity or context, title, message, color, time
+//send 5 parameters activity, title, message, color, time
 Mark.showAlert(this, title, message, R.color.title, 5000));
 ```
 - Color: Just remember to send a color in android resouce format <b>R.color.title</b> 
@@ -79,7 +79,7 @@ Mark.showAlert(this, title, message, R.color.title, 5000));
 ---
 All these alerts have an icon defined but if you need an alert with other icon you can use the <b>generic constructor:</b>
 ```kotlin
-//send 6 parameters activity or context, title, message, color, time, icon
+//send 6 parameters activity, title, message, color, time, icon
 Mark.showAlert(this, title, message, R.color.title, 5000, R.drawable.ic_alert));
 ```
 - Icon: Just remember to send an icon in android resouce format <b>R.drawable.ic_alert</b> 
