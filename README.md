@@ -2,20 +2,22 @@
 
 ﻿![Image of Jarvis Logo](jarvis_logo_v2.svg)
 
-# Overview
-
+### **Overview - About this project**
 A cool and simple alert library made in kotlin
 
 <b>Easy to use:</b> Jarvis library leverages Kotlin's language features for simplicity and minimal boilerplate.<br />
 <b>Modern:</b> Works like a Snackbar but on top screen
 
-# Images
-<img src="http://www.projectconnect.com.br/github_imagens/Screenshot_20200127-233947.png" width="15%"></img>
-<img src="http://www.projectconnect.com.br/github_imagens/Screenshot_20200127-233953.png" width="15%"></img>
-<img src="http://www.projectconnect.com.br/github_imagens/Screenshot_20200127-233957.png" width="15%"></img>
-<img src="http://www.projectconnect.com.br/github_imagens/Screenshot_20200127-234001.png" width="15%"></img>
+### 📷 How is this Library
+<img src="Screenshot_20200127-233947.png" width="15%"></img>
+<img src="Screenshot_20200127-233953.png" width="15%"></img>
+<img src="Screenshot_20200127-233957.png" width="15%"></img>
+<img src="Screenshot_20200127-234001.png" width="15%"></img>
 
-# Download
+### 💻Technology
+- [Kotlin](https://kotlinlang.org/)
+
+### Download
 Jarvis is available on https://jitpack.io/
 
 <b>Step 1</b> - Add it in your root build.gradle at the end of repositories:
@@ -30,12 +32,12 @@ allprojects {
 <b>Step 2</b> - Add the dependency
 ```
 dependencies {
-    implementation 'com.github.gilsonjuniorpro:Jarvis:0.1.8'
+    implementation 'com.github.gilsonjuniorpro:Jarvis:0.2.1'
 }
 ```
 
-# Quick Start
-<b>Jarvis</b> allows you to show some kinds of alerts like success, error, warning and generic.
+### Quick Start
+**Jarvis** allows you to show some kinds of alerts like success, error, warning and generic.
 
 To show a <b>success</b> alert you have 2 options:
 ```kotlin
@@ -79,13 +81,13 @@ Mark.showAlert(this, title, message, R.color.title, 5000, R.drawable.ic_alert));
 ```
 - Icon: Just remember to send an icon in android resouce format <b>R.drawable.ic_alert</b> 
 
-# Requirements
+### Requirements
 - AndroidX
 - Min SDK 21+
 - Compile SDK: 29+
 - Java 8+
 
-# License
+### License
 ```
 Copyright 2019 Coil Contributors
 
