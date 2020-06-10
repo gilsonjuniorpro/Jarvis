@@ -12,14 +12,17 @@ class Mark {
 
     companion object{
 
+        @JvmStatic
         private fun getDefaultColor(color: Int? = null) : Int{
             return color ?: R.color.colorAccent
         }
 
+        @JvmStatic
         private fun getDefaultTime(time: Long? = null) : Long{
             return time ?: 3000L
         }
 
+        @JvmStatic
         private fun getDefaultIcon(icon: Int? = null) : Int{
             return icon ?: R.drawable.ic_success
         }
