@@ -12,31 +12,31 @@ class Mark {
 
     companion object{
 
+        private fun getDefaultColor(color: Int? = null) : Int{
+            return color ?: R.color.colorAccent
+        }
+
+        private fun getDefaultTime(time: Long? = null) : Long{
+            return time ?: 3000L
+        }
+
+        private fun getDefaultIcon(icon: Int? = null) : Int{
+            return icon ?: R.drawable.ic_success
+        }
+
         @JvmStatic
         fun showAlert(activity: Activity, title: String? = null, message: String? = null,
-                      color: Int? = null, time: Long? = 3000L, icon: Int? = null){
+                      color: Int? = null, time: Long? = null, icon: Int? = null){
             var mainLayout = if(TextUtils.isEmpty(title)){
                 R.layout.layout_no_title
             }else{
                 R.layout.layout_with_title
             }
 
-            var colorDefault = if(color == null) {
-                R.color.colorAccent
-            } else {
-                color
-            }
-
-            var timeDefault = if(time == null) {
-                3000L
-            } else {
-                time
-            }
-
             AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(colorDefault)
+                .setBackgroundColorRes(getDefaultColor(color))
                 .enableSwipeToDismiss()
-                .setDuration(timeDefault)
+                .setDuration(getDefaultTime(time))
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
@@ -46,7 +46,7 @@ class Mark {
                         tvTitle.text = title
                     }
                     try {
-                        ivIcon.setImageResource(icon!!)
+                        ivIcon.setImageResource(getDefaultIcon(icon))
                     }catch (e: Exception){
                         ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
                     }
@@ -65,22 +65,10 @@ class Mark {
                 R.layout.layout_with_title
             }
 
-            var colorDefault = if(color == null) {
-                R.color.colorAccent
-            } else {
-                color
-            }
-
-            var timeDefault = if(time == null) {
-                3000L
-            } else {
-                time
-            }
-
             AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(colorDefault)
+                .setBackgroundColorRes(getDefaultColor(color))
                 .enableSwipeToDismiss()
-                .setDuration(timeDefault)
+                .setDuration(getDefaultTime(time))
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
