@@ -9,6 +9,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        Mark.showAlertSuccess(baseContext!!, "title", "message")
+        Mark.showAlert(this, title = "title", message = "message")
     }
 }
+

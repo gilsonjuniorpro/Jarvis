@@ -20,10 +20,23 @@ class Mark {
             }else{
                 R.layout.layout_with_title
             }
+
+            var colorDefault = if(color == null) {
+                R.color.colorAccent
+            } else {
+                color
+            }
+
+            var timeDefault = if(time == null) {
+                3000L
+            } else {
+                time
+            }
+
             AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(color!!)
+                .setBackgroundColorRes(colorDefault)
                 .enableSwipeToDismiss()
-                .setDuration(time!!)
+                .setDuration(timeDefault)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
@@ -51,10 +64,23 @@ class Mark {
             }else{
                 R.layout.layout_with_title
             }
+
+            var colorDefault = if(color == null) {
+                R.color.colorAccent
+            } else {
+                color
+            }
+
+            var timeDefault = if(time == null) {
+                3000L
+            } else {
+                time
+            }
+
             AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(color!!)
+                .setBackgroundColorRes(colorDefault)
                 .enableSwipeToDismiss()
-                .setDuration(time!!)
+                .setDuration(timeDefault)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
