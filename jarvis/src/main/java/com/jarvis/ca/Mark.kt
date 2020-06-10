@@ -13,16 +13,17 @@ class Mark {
     companion object{
 
         @JvmStatic
-        fun showAlert(activity: Activity, title: String?, message: String, color: Int, time: Long, icon: Int){
+        fun showAlert(activity: Activity, title: String? = null, message: String? = null,
+                      color: Int? = null, time: Long? = 3000L, icon: Int? = null){
             var mainLayout = if(TextUtils.isEmpty(title)){
                 R.layout.layout_no_title
             }else{
                 R.layout.layout_with_title
             }
             AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(color)
+                .setBackgroundColorRes(color!!)
                 .enableSwipeToDismiss()
-                .setDuration(time)
+                .setDuration(time!!)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
@@ -32,7 +33,7 @@ class Mark {
                         tvTitle.text = title
                     }
                     try {
-                        ivIcon.setImageResource(icon)
+                        ivIcon.setImageResource(icon!!)
                     }catch (e: Exception){
                         ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
                     }
@@ -43,16 +44,17 @@ class Mark {
         }
 
         @JvmStatic
-        fun showAlert(activity: Activity, title: String?, message: String, color: Int, time: Long){
+        fun showAlert(activity: Activity, title: String? = null, message: String? = null,
+                      color: Int? = null, time: Long? = 3000L){
             var mainLayout = if(TextUtils.isEmpty(title)){
                 R.layout.layout_no_title
             }else{
                 R.layout.layout_with_title
             }
             AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(color)
+                .setBackgroundColorRes(color!!)
                 .enableSwipeToDismiss()
-                .setDuration(time)
+                .setDuration(time!!)
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
