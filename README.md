@@ -90,6 +90,13 @@ Mark.showAlert(this, title, message, R.color.title, 5000, R.drawable.ic_alert));
 - Compile SDK: 29+
 - Java 8+
 
+## Donation
+If this project help you reduce time to develop, you can buy me a cup of coffee :) 
+
+<a href="https://www.buymeacoffee.com/gilsonjuniorpro" target="_blank">
+    <img src="orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" >
+</a>
+
 ### License
 ```
 Copyright 2019 Coil Contributors
