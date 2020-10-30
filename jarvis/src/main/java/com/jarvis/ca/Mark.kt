@@ -36,27 +36,30 @@ class Mark {
                 R.layout.layout_with_title
             }
 
-            AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(getDefaultColor(color))
-                .enableSwipeToDismiss()
-                .setDuration(getDefaultTime(time))
-                .also { alerter ->
-                    val layout = alerter.getLayoutContainer()
-                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
-                    if(!TextUtils.isEmpty(title)) {
-                        val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
-                        tvTitle.text = title
-                    }
-                    try {
-                        ivIcon.setImageResource(getDefaultIcon(icon))
-                    }catch (e: Exception){
-                        ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
-                    }
+            with(AlerterFactory) {
 
-                    tvMessage.text = message
-                }
-                .show()
+                create(activity, mainLayout)
+                        .setBackgroundColorRes(getDefaultColor(color))
+                        .enableSwipeToDismiss()
+                        .setDuration(getDefaultTime(time))
+                        .also { alerter ->
+                            val layout = alerter.getLayoutContainer()
+                            val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                            val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
+                            if(!TextUtils.isEmpty(title)) {
+                                val tvTitle: TextView = layout.findViewById<View>(R.id.tvTitle) as TextView
+                                tvTitle.text = title
+                            }
+                            try {
+                                ivIcon.setImageResource(getDefaultIcon(icon))
+                            }catch (e: Exception){
+                                ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
+                            }
+
+                            tvMessage.text = message
+                        }
+                        .show()
+            }
         }
 
         @JvmStatic
@@ -68,41 +71,45 @@ class Mark {
                 R.layout.layout_with_title
             }
 
-            AlerterFactory.create(activity, mainLayout)
-                .setBackgroundColorRes(getDefaultColor(color))
-                .enableSwipeToDismiss()
-                .setDuration(getDefaultTime(time))
-                .also { alerter ->
-                    val layout = alerter.getLayoutContainer()
-                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
-                    if(!TextUtils.isEmpty(title)) {
-                        val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
-                        tvTitle.text = title
-                    }
-                    ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
-                    tvMessage.text = message
-                }
-                .show()
+            with(AlerterFactory) {
+                create(activity, mainLayout)
+                        .setBackgroundColorRes(getDefaultColor(color))
+                        .enableSwipeToDismiss()
+                        .setDuration(getDefaultTime(time))
+                        .also { alerter ->
+                            val layout = alerter.getLayoutContainer()
+                            val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                            val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
+                            if(!TextUtils.isEmpty(title)) {
+                                val tvTitle: TextView = layout.findViewById<View>(R.id.tvTitle) as TextView
+                                tvTitle.text = title
+                            }
+                            ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
+                            tvMessage.text = message
+                        }
+                        .show()
+            }
         }
 
         @JvmStatic
         fun showAlertSuccess(activity: Activity, title: String, message: String){
-            AlerterFactory.create(activity, R.layout.layout_with_title)
-                .setBackgroundColorRes(R.color.colorAlertSuccess)
-                .enableSwipeToDismiss()
-                .setDuration(3000)
-                .also { alerter ->
-                    val layout = alerter.getLayoutContainer()
-                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+            with(AlerterFactory) {
+                create(activity, R.layout.layout_with_title)
+                        .setBackgroundColorRes(R.color.colorAlertSuccess)
+                        .enableSwipeToDismiss()
+                        .setDuration(3000)
+                        .also { alerter ->
+                            val layout = alerter.getLayoutContainer()
+                            val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                            val tvTitle: TextView = layout.findViewById<View>(R.id.tvTitle) as TextView
+                            val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
 
-                    ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
-                    tvTitle.text = title
-                    tvMessage.text = message
-                }
-                .show()
+                            ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
+                            tvTitle.text = title
+                            tvMessage.text = message
+                        }
+                        .show()
+            }
         }
 
         @JvmStatic
@@ -114,7 +121,7 @@ class Mark {
                 .also { alerter ->
                     val layout = alerter.getLayoutContainer()
                     val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+                    val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
 
                     ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_success))
                     tvMessage.text = message
@@ -124,74 +131,82 @@ class Mark {
 
         @JvmStatic
         fun showAlertError(activity: Activity, title: String, message: String){
-            AlerterFactory.create(activity, R.layout.layout_with_title)
-                .setBackgroundColorRes(R.color.colorAlertError)
-                .enableSwipeToDismiss()
-                .setDuration(3000)
-                .also { alerter ->
-                    val layout = alerter.getLayoutContainer()
-                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+            with(AlerterFactory) {
+                create(activity, R.layout.layout_with_title)
+                        .setBackgroundColorRes(R.color.colorAlertError)
+                        .enableSwipeToDismiss()
+                        .setDuration(3000)
+                        .also { alerter ->
+                            val layout = alerter.getLayoutContainer()
+                            val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                            val tvTitle: TextView = layout.findViewById<View>(R.id.tvTitle) as TextView
+                            val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
 
-                    ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_error))
-                    tvTitle.text = title
-                    tvMessage.text = message
-                }
-                .show()
+                            ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_error))
+                            tvTitle.text = title
+                            tvMessage.text = message
+                        }
+                        .show()
+            }
         }
 
         @JvmStatic
         fun showAlertError(activity: Activity, message: String){
-            AlerterFactory.create(activity, R.layout.layout_no_title)
-                .setBackgroundColorRes(R.color.colorAlertError)
-                .enableSwipeToDismiss()
-                .setDuration(3000)
-                .also { alerter ->
-                    val layout = alerter.getLayoutContainer()
-                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+            with(AlerterFactory) {
+                create(activity, R.layout.layout_no_title)
+                        .setBackgroundColorRes(R.color.colorAlertError)
+                        .enableSwipeToDismiss()
+                        .setDuration(3000)
+                        .also { alerter ->
+                            val layout = alerter.getLayoutContainer()
+                            val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                            val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
 
-                    ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_error))
-                    tvMessage.text = message
-                }
-                .show()
+                            ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_error))
+                            tvMessage.text = message
+                        }
+                        .show()
+            }
         }
 
         @JvmStatic
         fun showAlertWarning(activity: Activity, title: String, message: String){
-            AlerterFactory.create(activity, R.layout.layout_with_title)
-                .setBackgroundColorRes(R.color.colorAlertWarning)
-                .enableSwipeToDismiss()
-                .setDuration(3000)
-                .also { alerter ->
-                    val layout = alerter.getLayoutContainer()
-                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvTitle: TextView = layout!!.findViewById<View>(R.id.tvTitle) as TextView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+            with(AlerterFactory) {
+                create(activity, R.layout.layout_with_title)
+                        .setBackgroundColorRes(R.color.colorAlertWarning)
+                        .enableSwipeToDismiss()
+                        .setDuration(3000)
+                        .also { alerter ->
+                            val layout = alerter.getLayoutContainer()
+                            val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                            val tvTitle: TextView = layout.findViewById<View>(R.id.tvTitle) as TextView
+                            val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
 
-                    ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_info))
-                    tvTitle.text = title
-                    tvMessage.text = message
-                }
-                .show()
+                            ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_info))
+                            tvTitle.text = title
+                            tvMessage.text = message
+                        }
+                        .show()
+            }
         }
 
         @JvmStatic
         fun showAlertWarning(activity: Activity, message: String){
-            AlerterFactory.create(activity, R.layout.layout_no_title)
-                .setBackgroundColorRes(R.color.colorAlertWarning)
-                .enableSwipeToDismiss()
-                .setDuration(3000)
-                .also { alerter ->
-                    val layout = alerter.getLayoutContainer()
-                    val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
-                    val tvMessage: TextView = layout!!.findViewById<View>(R.id.tvMessage) as TextView
+            with(AlerterFactory) {
+                create(activity, R.layout.layout_no_title)
+                        .setBackgroundColorRes(R.color.colorAlertWarning)
+                        .enableSwipeToDismiss()
+                        .setDuration(3000)
+                        .also { alerter ->
+                            val layout = alerter.getLayoutContainer()
+                            val ivIcon: ImageView = layout!!.findViewById<View>(R.id.ivIcon) as ImageView
+                            val tvMessage: TextView = layout.findViewById<View>(R.id.tvMessage) as TextView
 
-                    ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_info))
-                    tvMessage.text = message
-                }
-                .show()
+                            ivIcon.setImageDrawable(ContextCompat.getDrawable(activity, R.drawable.ic_info))
+                            tvMessage.text = message
+                        }
+                        .show()
+            }
         }
     }
 }

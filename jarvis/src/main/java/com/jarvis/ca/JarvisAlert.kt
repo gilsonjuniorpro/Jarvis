@@ -54,26 +54,12 @@ class JarvisAlert @JvmOverloads constructor(context: Context,
     private var buttons = ArrayList<Button>()
     var buttonTypeFace: Typeface? = null
 
-    /**
-     * Flag to ensure we only set the margins once
-     */
     private var marginSet: Boolean = false
 
-    /**
-     * Flag to enable / disable haptic feedback
-     */
     private var vibrationEnabled = true
 
-    /**
-     * Flag to enable / disable sound
-     */
     private var soundEnabled = false
 
-    /**
-     * Sets the Gravity of the JarvisAlert
-     *
-     * @param contentGravity Gravity of the JarvisAlert
-     */
     var contentGravity: Int
         get() = (llAlertBackground?.layoutParams as LayoutParams).gravity
         set(contentGravity) {

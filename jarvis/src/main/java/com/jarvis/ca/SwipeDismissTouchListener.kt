@@ -9,6 +9,9 @@ import android.view.MotionEvent
 import android.view.VelocityTracker
 import android.view.View
 import android.view.ViewConfiguration
+import kotlin.math.abs
+import kotlin.math.max
+import kotlin.math.min
 
 /**
  * A [View.OnTouchListener] that makes any [View] dismissable when the
@@ -130,7 +133,7 @@ internal class SwipeDismissTouchListener(
                     this.addMovement(motionEvent)
                     val deltaX = motionEvent.rawX - mDownX
                     val deltaY = motionEvent.rawY - mDownY
-                    if (Math.abs(deltaX) > mSlop && Math.abs(deltaY) < Math.abs(deltaX) / 2) {
+                    if (abs(deltaX) > mSlop && abs(deltaY) < abs(deltaX) / 2) {
                         mSwiping = true
                         mSwipingSlop = if (deltaX > 0) mSlop else -mSlop
                         mView.parent.requestDisallowInterceptTouchEvent(true)
@@ -146,8 +149,9 @@ internal class SwipeDismissTouchListener(
                         mTranslationX = deltaX
                         mView.translationX = deltaX - mSwipingSlop
                         // TODO: use an ease-out interpolator or such
-                        mView.alpha = Math.max(0f, Math.min(1f,
-                            1f - 2f * Math.abs(deltaX) / mViewWidth))
+                        mView.alpha = max(0f, min(1f,
+                            1f - 2f * abs(deltaX) / mViewWidth)
+                        )
                         return true
                     }
                 }
