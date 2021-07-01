@@ -31,10 +31,8 @@ class AlerterFactory private constructor() {
         }
 
     fun show(): JarvisAlert? {
-        //This will get the Activity Window's DecorView
         activityWeakReference?.get()?.let {
             it.runOnUiThread {
-                //Add the new JarvisAlert to the View Hierarchy
                 activityDecorView?.addView(alert)
             }
         }
