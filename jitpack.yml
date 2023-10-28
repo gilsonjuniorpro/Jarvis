@@ -1,2 +1,4 @@
 jdk:
-  - openjdk11
+  - oraclejdk8
+install:
+  - ./gradlew install
