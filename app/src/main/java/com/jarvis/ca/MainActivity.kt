@@ -2,6 +2,7 @@ package com.jarvis.ca
 
 import android.os.Bundle
 import android.os.Handler
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
@@ -10,6 +11,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val tbAlert = findViewById<Button>(R.id.bt_alert)
+        tbAlert.setOnClickListener {
+            Mark.showAlert(
+                this,
+                title = "title",
+                message = "message",
+                color = R.color.colorDefault,
+                icon = R.drawable.ic_error,
+                time = 10000L
+            )
+        }
+
+        /*
         Mark.showAlert(
             this,
             title = "title",
@@ -51,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         Handler().postDelayed({
             Mark.showAlertWarning(this,  message = "message 9")
         }, 40000L)
+        */
     }
 }
 
