@@ -24,8 +24,15 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import kotlinx.android.synthetic.main.alerter_alert_default_layout.view.*
-import kotlinx.android.synthetic.main.alerter_alert_view.view.*
+import kotlinx.android.synthetic.main.alerter_alert_default_layout.view.flIconContainer
+import kotlinx.android.synthetic.main.alerter_alert_default_layout.view.ivIcon
+import kotlinx.android.synthetic.main.alerter_alert_default_layout.view.pbProgress
+import kotlinx.android.synthetic.main.alerter_alert_default_layout.view.tvText
+import kotlinx.android.synthetic.main.alerter_alert_default_layout.view.tvTitle
+import kotlinx.android.synthetic.main.alerter_alert_view.view.flClickShield
+import kotlinx.android.synthetic.main.alerter_alert_view.view.llAlertBackground
+import kotlinx.android.synthetic.main.alerter_alert_view.view.llButtonContainer
+import kotlinx.android.synthetic.main.alerter_alert_view.view.vAlertContentContainer
 
 class JarvisAlert @JvmOverloads constructor(context: Context,
                                             @LayoutRes layoutId: Int,
